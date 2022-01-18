@@ -2,12 +2,11 @@
 Clone Repositório
 ```sh
 git clone https://github.com/matheusrne/flights.git flights
-cd flights/
 ```
 
 Crie o Arquivo .env
 ```sh
-cd example-project/
+cd flights/
 cp .env.example .env
 ```
 
