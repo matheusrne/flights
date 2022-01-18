@@ -1,8 +1,8 @@
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone https://github.com/especializati/setup-docker-laravel.git my-project
-cd my-project/
+git clone https://github.com/matheusrne/flights.git flights
+cd flights/
 ```
 
 Crie o Arquivo .env
