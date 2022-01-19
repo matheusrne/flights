@@ -33,6 +33,11 @@ Gerar a key do projeto Laravel
 php artisan key:generate
 ```
 
+Swagger documentation
+
+```sh
+php artisan l5-swagger:generate
+```
 
 Acesse a rota
 [http://localhost:8180/api/flights](http://localhost:8180/api/flights)
