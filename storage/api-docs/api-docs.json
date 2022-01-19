@@ -1,0 +1,183 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Flights",
+        "description": "Documentação da aplicação Flights",
+        "version": "1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8180/api",
+            "description": "Flights API"
+        }
+    ],
+    "paths": {
+        "/flights": {
+            "get": {
+                "tags": [
+                    "flights"
+                ],
+                "summary": "",
+                "description": "",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Groups"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Groups": {
+                "properties": {
+                    "flights": {
+                        "$ref": "#/components/schemas/flights"
+                    },
+                    "groups": {
+                        "$ref": "#/components/schemas/groups"
+                    },
+                    "totalGroups": {
+                        "type": "int",
+                        "example": "10"
+                    },
+                    "totalFlights": {
+                        "type": "int",
+                        "example": "15"
+                    },
+                    "cheapestPrice": {
+                        "type": "float",
+                        "example": "200"
+                    },
+                    "cheapestGroup": {
+                        "type": "string",
+                        "example": "73060fcfbf1b4581ff4c5f8b7e49733e"
+                    }
+                },
+                "type": "object"
+            },
+            "flights": {
+                "type": "array",
+                "items": {
+                    "properties": {
+                        "id": {
+                            "type": "int",
+                            "example": "1"
+                        },
+                        "cia": {
+                            "type": "string",
+                            "example": "GOL"
+                        },
+                        "fare": {
+                            "type": "string",
+                            "example": "1AF"
+                        },
+                        "flightNumber": {
+                            "type": "string",
+                            "example": "G3-1701"
+                        },
+                        "origin": {
+                            "type": "string",
+                            "example": "CNF"
+                        },
+                        "destination": {
+                            "type": "string",
+                            "example": "BSB"
+                        },
+                        "departureDate": {
+                            "type": "string",
+                            "example": "29/01/2021"
+                        },
+                        "arrivalDate": {
+                            "type": "string",
+                            "example": "29/01/2021"
+                        },
+                        "departureTime": {
+                            "type": "string",
+                            "example": "07:40"
+                        },
+                        "arrivalTime": {
+                            "type": "string",
+                            "example": "09:00"
+                        },
+                        "classService": {
+                            "type": "int",
+                            "example": 3
+                        },
+                        "price": {
+                            "type": "float",
+                            "example": "50"
+                        },
+                        "tax": {
+                            "type": "float",
+                            "example": "36"
+                        },
+                        "outbound": {
+                            "type": "int",
+                            "example": "1"
+                        },
+                        "inbound": {
+                            "type": "int",
+                            "example": "0"
+                        },
+                        "duration": {
+                            "type": "string",
+                            "example": "1:20"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "groups": {
+                "type": "array",
+                "items": {
+                    "properties": {
+                        "uniqueId": {
+                            "type": "string",
+                            "example": "73060fcfbf1b4581ff4c5f8b7e49733e"
+                        },
+                        "totalPrice": {
+                            "type": "float",
+                            "example": "200"
+                        },
+                        "inbound": {
+                            "$ref": "#/components/schemas/flights"
+                        },
+                        "outbound": {
+                            "$ref": "#/components/schemas/flights"
+                        }
+                    },
+                    "type": "object"
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
