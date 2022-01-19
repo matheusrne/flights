@@ -15,29 +15,5 @@ Suba os containers do projeto
 docker-compose up -d
 ```
 
-
-Acessar o container
-```sh
-docker-compose exec php bash
-```
-
-
-Instalar as dependências do projeto
-```sh
-composer install
-```
-
-
-Gerar a key do projeto Laravel
-```sh
-php artisan key:generate
-```
-
-Swagger documentation
-
-```sh
-php artisan l5-swagger:generate
-```
-
-Acesse a rota
-[http://localhost:8180/api/flights](http://localhost:8180/api/flights)
+Acesse o swagger
+[http://localhost:8180/api/documentation](http://localhost:8180/api/documentation)

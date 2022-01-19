@@ -31,4 +31,11 @@ RUN pecl install -o -f redis \
 # Set working directory
 WORKDIR /var/www
 
+ADD ./ /var/www
+
+RUN composer install --optimize-autoloader
+RUN php artisan l5-swagger:generate
+RUN composer clear-cache
+RUN php artisan key:generate
+
 USER docker
